@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyful Stars Academy - Nairobi, Kenya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(135deg, #006633, #00cc66); /* Kenyan green colors */
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeInDown 0.8s ease forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo img {
+            height: 55px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+        
+        .logo h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.6rem 1.1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 30, 0, 0.7), rgba(0, 60, 0, 0.8)), url('https://images.unsplash.com/photo-1581595219312-4a240d2e4f68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            animation: zoomIn 1s ease forwards;
+            opacity: 0;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .hero-content {
+            max-width: 850px;
+            padding: 2.5rem;
+            position: relative;
+            z-index: 2;
+            animation: slideUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h2 {
+            font-size: 3.2rem;
+            margin-bottom: 1.2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            line-height: 1.2;
+            animation: fadeIn 1.2s ease;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 1.4s ease;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            animation: fadeIn 1.6s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1.2rem;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, #006633, #00cc66);
+            border-radius: 3px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            color: #006633;
+            margin-bottom: 1.5rem;
+            animation: fadeInLeft 0.8s ease;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            animation: fadeInLeft 0.9s ease;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+            animation: fadeInRight 1s ease;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.08);
+        }
+        
+        /* Programs Section */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: all 0.4s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .program-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .program-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .program-card:hover .program-image img {
+            transform: scale(1.15);
+        }
+        
+        .program-content {
+            padding: 1.8rem;
+        }
+        
+        .program-content h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .program-content p {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        .program-badge {
+            display: inline-block;
+            background: #00cc66;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* Events Section */
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .event-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 1.8rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        
+        .event-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+        
+        .event-date {
+            background: linear-gradient(135deg, #006633, #00cc66);
+            color: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 100px;
+            flex-shrink: 0;
+            animation: pulse 2s infinite;
+        }
+        
+        .event-date .day {
+            font-size: 2.2rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        .event-date .month {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .event-details {
+            flex: 1;
+        }
+        
+        .event-details h3 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+        }
+        
+        .event-details p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        
+        .event-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            color: #006633;
+            font-weight: 600;
+        }
+        
+        /* Contact Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3.5rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            animation: fadeInLeft 0.8s ease;
+        }
+        
+        .contact-info h3 {
+            color: #006633;
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid #00cc66;
+            font-size: 1.8rem;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00cc66;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .kenyan-flag-small {
+            width: 28px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            animation: fadeInRight 0.8s ease;
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #00cc66;
+            box-shadow: 0 0 0 3px rgba(0, 204, 102, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: #ecf0f1;
+            padding: 4rem 0 2rem;
+            animation: fadeIn 1s ease;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .footer-column h3 {
+            color: #00cc66;
+            margin-bottom: 1.8rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            font-size: 1.6rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #00cc66;
+        }
+        
+        .footer-column p {
+            margin-bottom: 1.5rem;
+            color: #bdc3c7;
+            line-height: 1.7;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.9rem;
+        }
+        
+        .footer-column a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-column a:hover {
+            color: #00cc66;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background: #00cc66;
+            transform: translateY(-3px);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            background: #00cc66;
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 5px 5px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #00994d;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 1.05rem;
+        }
+        
+        /* Kenyan Flag Styling */
+        .flag-container {
+            display: flex;
+            justify-content: center;
+            margin: 2.5rem 0;
+            animation: fadeIn 1s ease;
+        }
+        
+        .kenyan-flag-large {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.6rem;
+            }
+            
+            .hero p {
+                font-size: 1.15rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #006633;
+                flex-direction: column;
+                padding: 1.5rem 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                z-index: 100;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                text-align: center;
+                margin: 0.5rem 0;
+            }
+            
+            nav a {
+                display: block;
+                padding: 0.8rem;
+            }
+            
+            .hero {
+                height: 60vh;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .event-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .event-date {
+                margin: 0 auto;
+            }
+            
+            .event-meta {
+                justify-content: center;
+            }
+            
+            .programs-grid, .events-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.9rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .btn-secondary {
+                width: 100%;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* Form Validation Styles */
+        .form-control.error {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+        }
+        
+        .form-error {
+            color: #e74c3c;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .form-success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 1.8rem;
+            display: none;
+            border-left: 4px solid #28a745;
+        }
+        
+        /* Kenyan Elements */
+        .kenyan-pattern {
+            background: url('image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f9fa"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%2300cc66" stroke-width="1" opacity="0.05"/></svg>');
+        }
+        
+        .kenyan-accent {
+            color: #00cc66;
+        }
+        
+        .kenyan-flag {
+            display: inline-block;
+            width: 24px;
+            height: 16px;
+            background: linear-gradient(to right, #000 33%, #fff 33%, #fff 66%, #bb0000 66%);
+            border: 1px solid #000;
+            position: relative;
+        }
+        
+        .kenyan-flag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: #006633;
+            border-radius: 50%;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #006633;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Image Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 200px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 102, 51, 0.8);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loadingScreen">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    
+                    <h1>Joyful Stars Academy</h1>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Empowering Kenyan Youth for a Brighter Future</h2>
+            <p>At Joyful Stars Academy in Nairobi, we provide quality education rooted in African values while preparing students for global success through the Kenyan 8-4-4 curriculum and CBC.</p>
+            <div>
+                <a href="#contact" class="btn">Enroll Now</a>
+                <a href="#programs" class="btn btn-secondary">Our Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kenyan Flag Display -->
+    <div class="flag-container">
+        <img src="./images/top.jpg" alt="Kenyan Flag" class="kenyan-flag-large">
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="kenyan-pattern">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Our School</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Excellence in Education Since 2005</h3>
+                    <p>Located in the heart of Nairobi along Ngong Road, Joyful Stars Academy has been dedicated to providing exceptional education to Kenyan students from Pre-Primary through Form 4. Our experienced faculty, innovative curriculum aligned with KICD requirements, and supportive community create an environment where every student can thrive.</p>
+                    <p>Our campus features modern facilities including science labs equipped for KCSE practicals, computer centers with internet access, art studios showcasing Kenyan talent, and athletic fields where our teams compete in the Nairobi County Sports Association tournaments.</p>
+                    <p>At Joyful Stars Academy, we celebrate our African heritage through cultural days, Swahili language programs, and traditional music and dance, while preparing students to excel in national exams and beyond.</p>
+                    <a href="#contact" class="btn" style="margin-top: 1.8rem;">Visit Our Campus</a>
+                </div>
+                <div class="about-image">
+                    <img src="./images/s11.jpg">
+                </div>
+            </div>
+            
+            <!-- School Gallery -->
+            <div class="section-title" style="margin-top: 3rem;">
+                <h2>Our Campus</h2>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="./images/s3.jpg">
+                    <div class="gallery-caption">Science Laboratory</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/s4.jpg">
+                    <div class="gallery-caption">Computer Center</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/s7.jpg" alt="Library">
+                    <div class="gallery-caption">School Library</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/s2.jpg">
+                    <div class="gallery-caption">Athletic Field</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="./images/s1.jpg">
+                    </div>
+                    <div class="program-content">
+                        <h3>Primary Education (CBC)</h3>
+                        <p>Grades 1-6: Our Competency-Based Curriculum program focuses on building strong foundations in literacy, numeracy, and digital literacy through engaging, culturally relevant learning experiences aligned with Kenyan education standards.</p>
+                        <span class="program-badge">KICD Approved</span>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="./images/today.jpg">
+                    </div>
+                    <div class="program-content">
+                        <h3>Secondary Education</h3>
+                        <p>Form 1-4: As students prepare for KCSE, our program emphasizes critical thinking, STEM education, and leadership development with a focus on African innovation and problem-solving relevant to Kenya's development goals.</p>
+                        <span class="program-badge">KCSE Excellence</span>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="./images/4eaa622fc8424d8f41e8004ac34083fa.jpg">
+                    </div>
+                    <div class="program-content">
+                        <h3>Extracurricular</h3>
+                        <p>From traditional Kenyan dance (Isukuti, Benga) and music to football, netball, and coding clubs, our extracurricular programs celebrate African culture while developing 21st-century skills and talents.</p>
+                        <span class="program-badge">Talent Development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="kenyan-pattern">
+        <div class="container">
+            <div class="section-title">
+                <h2>Upcoming Events</h2>
+            </div>
+            <div class="events-container">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">15</span>
+                        <span class="month">Oct</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Mashujaa Day Celebration</h3>
+                        <p>Join us as we celebrate Kenyan heroes with cultural performances, guest speakers from the Ministry of Education, and community activities showcasing national pride.</p>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> 9:00 AM - 3:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> School Grounds</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">22</span>
+                        <span class="month">Oct</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Parent-Teacher Conferences</h3>
+                        <p>Meet with your child's teachers to discuss their progress in KCPE/KCSE preparation, strengths, and areas for growth. Appointments are required through the parent portal.</p>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> 4:00 PM - 8:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Classrooms</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">05</span>
+                        <span class="month">Nov</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Inter-School Football Tournament</h3>
+                        <p>Cheer on our Lions as they compete against other Nairobi schools in the annual tournament. Concessions featuring traditional Kenyan snacks like mandazi and viazi karai will be available.</p>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> 1:00 PM - 6:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> School Field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Event Gallery -->
+            <div class="section-title" style="margin-top: 3rem;">
+                <h2>Past Events</h2>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="./images/s12.jpg">
+                    <div class="gallery-caption">Cultural Day Celebration</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/s10.jpg">
+                    <div class="gallery-caption">Annual Sports Day</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/ground1.jpg" alt="Science Fair">
+                    <div class="gallery-caption">Science & Innovation Fair</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./images/g9.jpg" alt="Music Festival">
+                    <div class="gallery-caption">Kenyan Music Festival</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Address</h4>
+                            <p><span class="kenyan-flag"></span> Joyful Stars Academy<br>
+                            Along Ngong Road, Nairobi<br>
+                            P.O. Box 12345-00100<br>
+                            Nairobi, Kenya</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+254 712 345 678 (Principal's Office)<br>
+                            +254 723 456 789 (Admissions)<br>
+                            +254 734 567 890 (General Inquiries)</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>info@joyfulstars.ac.ke<br>
+                            admissions@joyfulstars.ac.ke<br>
+                            principal@joyfulstars.ac.ke</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Office Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 4:30 PM<br>
+                            Saturday: 9:00 AM - 1:00 PM (Admin only)<br>
+                            Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="form-success" id="formSuccess">
+                        Thank you for your message! We'll get back to you soon.
+                    </div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name">
+                            <div class="form-error" id="nameError">Please enter your name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                            <div class="form-error" id="emailError">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number (Kenyan Format)</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+254 7XX XXX XXX">
+                            <div class="form-error" id="phoneError">Please enter a valid Kenyan phone number</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" class="form-control">
+                                <option value="">Select a subject</option>
+                                <option value="admissions">Admissions</option>
+                                <option value="academic">Academic Programs</option>
+                                <option value="events">Events & Activities</option>
+                                <option value="employment">Employment</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="form-error" id="subjectError">Please select a subject</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="How can we help you?"></textarea>
+                            <div class="form-error" id="messageError">Please enter your message</div>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Joyful Stars Academy</h3>
+                    <p>Empowering Kenyan youth through quality education since 2005. We are committed to academic excellence, character development, and preparing students for success in Kenya and beyond through our alignment with the Kenyan education system.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#programs"><i class="fas fa-chevron-right"></i> Programs</a></li>
+                        <li><a href="#events"><i class="fas fa-chevron-right"></i> Events</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Parent Portal</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Student Handbook</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Academic Calendar</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> School Fee Structure</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> KCSE Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates about school events, news, and important announcements from the Ministry of Education.</p>
+                    <form id="newsletterForm" class="newsletter-form">
+                        <input type="email" id="newsletterEmail" class="form-control" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="form-success" id="newsletterSuccess" style="display: none; margin-top: 15px;">Thank you for subscribing!</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Joyful Stars Academy, Nairobi, Kenya. All Rights Reserved. <span class="kenyan-flag"></span></p>
+                <p style="margin-top: 8px; font-size: 0.95rem; color: #7f8c8d;">Accredited by the Ministry of Education, Kenya | KICD Approved Curriculum</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.visibility = 'hidden';
+            }, 1500);
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('show');
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                const navMenu = document.getElementById('navMenu');
+                navMenu.classList.remove('show');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Update active link
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Form Validation with Kenyan Phone Number Format
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset previous errors
+            document.querySelectorAll('.form-control').forEach(input => {
+                input.classList.remove('error');
+            });
+            document.querySelectorAll('.form-error').forEach(error => {
+                error.style.display = 'none';
+            });
+            
+            let isValid = true;
+            
+            // Validate name
+            const name = document.getElementById('name');
+            if (!name.value.trim()) {
+                name.classList.add('error');
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+                email.classList.add('error');
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate Kenyan phone number
+            const phone = document.getElementById('phone');
+            // Kenyan phone number regex: +254 followed by 9 digits, or 07XX XXX XXX format
+            const kenyanPhoneRegex = /^(\+254|0)?[7]\d{8}$/;
+            const phoneValue = phone.value.trim().replace(/\s+/g, '');
+            
+            if (!phone.value.trim()) {
+                phone.classList.add('error');
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            } else if (!kenyanPhoneRegex.test(phoneValue.replace(/^\+254/, '0').replace(/^0/, ''))) {
+                phone.classList.add('error');
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate subject
+            const subject = document.getElementById('subject');
+            if (!subject.value) {
+                subject.classList.add('error');
+                document.getElementById('subjectError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate message
+            const message = document.getElementById('message');
+            if (!message.value.trim()) {
+                message.classList.add('error');
+                document.getElementById('messageError').style.display = 'block';
+                isValid = false;
+            }
+            
+            // If form is valid, show success message
+            if (isValid) {
+                document.getElementById('formSuccess').style.display = 'block';
+                document.getElementById('contactForm').reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('formSuccess').style.display = 'none';
+                }, 5000);
+            }
+        });
+
+        // Newsletter Form
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('newsletterEmail');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!email.value.trim() || !emailRegex.test(email.value.trim())) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Show success message
+            document.getElementById('newsletterSuccess').style.display = 'block';
+            email.value = '';
+            
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                document.getElementById('newsletterSuccess').style.display = 'none';
+            }, 3000);
+        });
+
+        // Add active class to nav links based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Observe program cards
+        document.querySelectorAll('.program-card').forEach(card => {
+            observer.observe(card);
+        });
+        
+        // Observe event cards
+        document.querySelectorAll('.event-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
